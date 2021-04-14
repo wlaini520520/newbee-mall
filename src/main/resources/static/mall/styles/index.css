@@ -286,7 +286,7 @@
 }
 
 #content #flash {
-    width: 1226px;
+    width: 1736px;
     flex-shrink: 0;
     height: 398px;
     margin-top: 20px;
@@ -303,7 +303,7 @@
 }
 
 #content #flash ul li {
-    width: 234px;
+    width: 434px;
     height: 352px;
     background-color: #fafafa;
     border-top: 1px solid #ffa500;
@@ -329,10 +329,22 @@
     display: block;
     font-size: 14px;
     text-align: center;
+
+}
+#content #flash ul li:hover{
+    webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-box-shadow: 0 0 6px #999;
+    box-shadow: 0 0 6px #999;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    /*animation:ani 1s;                        !*与@keyframes绑定 并规定在1s内完成动画*!*/
+    /*animation-fill-mode : forwards;          !*鼠标不离开容器，仍保持动画的最后效果*!*/
 }
 
 #content #flash ul li a img {
-    width: 160px;
+    width: 260px;
     height: 160px;
     opacity: 0.8;
     margin: 37px;

@@ -3,12 +3,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <aside th:fragment="sidebar-fragment(path)" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a th:href="@{/admin/index}" class="brand-link">
-        <img th:src="@{/admin/dist/img/new-bee-logo-1.png}" alt="ssm-cluster Logo"
-             class="brand-image img-circle elevation-3"
-             style="opacity: .8">
-        <span class="brand-text font-weight-light">NEWBEE商城</span>
-    </a>
+    <!--<a th:href="@{/admin/index}" class="brand-link">-->
+        <!--<img th:src="@{/admin/dist/img/new-bee-logo-1.png}" alt="ssm-cluster Logo"-->
+             <!--class="brand-image img-circle elevation-3"-->
+             <!--style="opacity: .8">-->
+        <!--<span class="brand-text font-weight-light">NEWBEE商城</span>-->
+    <!--</a>-->
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
@@ -17,15 +17,15 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-header">Dashboard</li>
-                <li class="nav-item">
-                    <a th:href="@{/admin/index}" th:class="${path}=='index'?'nav-link active':'nav-link'">
-                        <i class="nav-icon fa fa-dashboard"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
+                <!--<li class="nav-header">Dashboard</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a th:href="@{/admin/index}" th:class="${path}=='index'?'nav-link active':'nav-link'">-->
+                        <!--<i class="nav-icon fa fa-dashboard"></i>-->
+                        <!--<p>-->
+                            <!--Dashboard-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
                 <li class="nav-item">
                     <a th:href="@{/admin/goods/edit}" th:class="${path}=='goods-edit'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-plus"></i>
@@ -35,52 +35,52 @@
                     </a>
                 </li>
                 <li class="nav-header">首页配置</li>
-                <li class="nav-item">
-                    <a th:href="@{/admin/carousels}"
-                       th:class="${path}=='newbee_mall_carousel'?'nav-link active':'nav-link'">
-                        <i class="nav-icon fa fa-file-image-o"></i>
-                        <p>
-                            轮播图配置
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/admin/indexConfigs?configType=3}"
-                       th:class="${path}=='INDEX_GOODS_HOTS'?'nav-link active':'nav-link'">
-                        <i class="nav-icon fa fa-hand-o-up"></i>
-                        <p>
-                            热销商品配置
-                        </p>
-                    </a>
-                </li>
+                <!--<li class="nav-item">-->
+                    <!--<a th:href="@{/admin/carousels}"-->
+                       <!--th:class="${path}=='newbee_mall_carousel'?'nav-link active':'nav-link'">-->
+                        <!--<i class="nav-icon fa fa-file-image-o"></i>-->
+                        <!--<p>-->
+                            <!--轮播图配置-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a th:href="@{/admin/indexConfigs?configType=3}"-->
+                       <!--th:class="${path}=='INDEX_GOODS_HOTS'?'nav-link active':'nav-link'">-->
+                        <!--<i class="nav-icon fa fa-hand-o-up"></i>-->
+                        <!--<p>-->
+                            <!--热销商品配置-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
                 <li class="nav-item">
                     <a th:href="@{/admin/indexConfigs?configType=4}"
                        th:class="${path}=='INDEX_GOODS_NEW'?'nav-link active':'nav-link'">
                         <i class="nav-icon fa fa-hand-o-up"></i>
                         <p>
-                            新品上线配置
+                            商品上线配置
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a th:href="@{/admin/indexConfigs?configType=5}"
-                       th:class="${path}=='INDEX_GOODS_RECOMMOND'?'nav-link active':'nav-link'">
-                        <i class="nav-icon fa fa-hand-o-up"></i>
-                        <p>
-                            为你推荐配置
-                        </p>
-                    </a>
-                </li>
+                <!--<li class="nav-item">-->
+                    <!--<a th:href="@{/admin/indexConfigs?configType=5}"-->
+                       <!--th:class="${path}=='INDEX_GOODS_RECOMMOND'?'nav-link active':'nav-link'">-->
+                        <!--<i class="nav-icon fa fa-hand-o-up"></i>-->
+                        <!--<p>-->
+                            <!--为你推荐配置-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
                 <li class="nav-header">管理模块</li>
-                <li class="nav-item">
-                    <a th:href="@{/admin/categories?parentId=0&categoryLevel=1&backParentId=0}"
-                       th:class="${path}=='newbee_mall_category'?'nav-link active':'nav-link'">
-                        <i class="fa fa-list-alt nav-icon" aria-hidden="true"></i>
-                        <p>
-                            分类管理
-                        </p>
-                    </a>
-                </li>
+                <!--<li class="nav-item">-->
+                    <!--<a th:href="@{/admin/categories?parentId=0&categoryLevel=1&backParentId=0}"-->
+                       <!--th:class="${path}=='newbee_mall_category'?'nav-link active':'nav-link'">-->
+                        <!--<i class="fa fa-list-alt nav-icon" aria-hidden="true"></i>-->
+                        <!--<p>-->
+                            <!--分类管理-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
                 <li class="nav-item">
                     <a th:href="@{/admin/goods}" th:class="${path}=='newbee_mall_goods'?'nav-link active':'nav-link'">
                         <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
