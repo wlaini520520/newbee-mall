@@ -16,6 +16,11 @@ public class PageQueryUtil extends LinkedHashMap<String, Object> {
     private int page;
     //每页条数
     private int limit;
+    public PageQueryUtil(int page , int limit, int configType) {
+        this.page = page;
+        this.limit = limit;
+        this.put("configType", configType);
+    }
 
     public PageQueryUtil(Map<String, Object> params) {
         this.putAll(params);

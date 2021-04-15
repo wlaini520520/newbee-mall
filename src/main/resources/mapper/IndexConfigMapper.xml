@@ -49,7 +49,7 @@
         from tb_newbee_mall_index_config
         where config_type = #{configType} and is_deleted = 0
         order by config_rank desc
-        limit #{number}
+        limit #{page}, 4
     </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select

@@ -41,7 +41,8 @@ public class GoodsController {
         if (StringUtils.isEmpty(params.get("page"))) {
             params.put("page", 1);
         }
-        params.put("limit", Constants.GOODS_SEARCH_PAGE_LIMIT);
+//        params.put("limit", Constants.GOODS_SEARCH_PAGE_LIMIT);
+        params.put("limit", Constants.SEARCH_CATEGORY_NUMBER);
         //封装分类数据
         if (params.containsKey("goodsCategoryId") && !StringUtils.isEmpty(params.get("goodsCategoryId") + "")) {
             Long categoryId = Long.valueOf(params.get("goodsCategoryId") + "");

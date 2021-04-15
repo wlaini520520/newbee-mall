@@ -8,6 +8,7 @@
  */
 package ltd.newbee.mall.service.impl;
 
+import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallIndexConfigGoodsVO;
 import ltd.newbee.mall.dao.IndexConfigMapper;
@@ -71,9 +72,9 @@ public class NewBeeMallIndexConfigServiceImpl implements NewBeeMallIndexConfigSe
     }
 
     @Override
-    public List<NewBeeMallIndexConfigGoodsVO> getConfigGoodsesForIndex(int configType, int number) {
+    public List<NewBeeMallIndexConfigGoodsVO> getConfigGoodsesForIndex(int configType, int number, int page) {
         List<NewBeeMallIndexConfigGoodsVO> newBeeMallIndexConfigGoodsVOS = new ArrayList<>(number);
-        List<IndexConfig> indexConfigs = indexConfigMapper.findIndexConfigsByTypeAndNum(configType, number);
+        List<IndexConfig> indexConfigs = indexConfigMapper.findIndexConfigsByTypeAndNum(configType, page * Constants.PAGE_SIZE);
         if (!CollectionUtils.isEmpty(indexConfigs)) {
             //取出所有的goodsId
             List<Long> goodsIds = indexConfigs.stream().map(IndexConfig::getGoodsId).collect(Collectors.toList());
