@@ -28,10 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class GoodsController {
@@ -53,6 +50,9 @@ public class GoodsController {
         }
 //        params.put("limit", Constants.GOODS_SEARCH_PAGE_LIMIT);
         params.put("limit", Constants.SEARCH_CATEGORY_NUMBER);
+        // 查询所有的一级分类
+        List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
+        request.setAttribute("firstLevelCategories", firstLevelCategories);
         //封装分类数据
         if (params.containsKey("goodsCategoryId") && !StringUtils.isEmpty(params.get("goodsCategoryId") + "")) {
             Long categoryId = Long.valueOf(params.get("goodsCategoryId") + "");
@@ -63,6 +63,11 @@ public class GoodsController {
             }
             // 增加查询一级分类商品条件
             params.put("goodsCategoryId",categoryId);
+            request.setAttribute("goodsCategoryId", categoryId);
+        } else if (StringUtils.isEmpty(params.get("keyword"))){ // 默认按照哪一个一级分类搜索，仅当关键字为空的时候才默认
+            Long categoryId = Optional.ofNullable(firstLevelCategories).orElse(new ArrayList<>()).stream().findFirst().get().getCategoryId();
+            params.put("goodsCategoryId",categoryId);
+            request.setAttribute("goodsCategoryId", categoryId);
         }
         //封装参数供前端回显
         if (params.containsKey("orderBy") && !StringUtils.isEmpty(params.get("orderBy") + "")) {
@@ -80,9 +85,6 @@ public class GoodsController {
         //封装商品数据
         PageQueryUtil pageUtil = new PageQueryUtil(params);
         request.setAttribute("pageResult", newBeeMallGoodsService.searchNewBeeMallGoods(pageUtil));
-        // 查询所有的一级分类
-        List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
-        request.setAttribute("firstLevelCategories", firstLevelCategories);
         return "mall/search";
     }
 

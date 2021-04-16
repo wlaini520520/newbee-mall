@@ -58,7 +58,7 @@
 <div class="sort">
     <div class="list">
         <th:block th:each="goodsCategory : ${firstLevelCategories}">
-            <a style="color: #5079d9;" th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=default'}"
+            <a style="color: #5079d9;" th:href="@{'/search?&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=default'}"
                th:text="${goodsCategory.categoryName}"></a>&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
         </th:block>
@@ -88,6 +88,9 @@
         <div class="page_wrap">
             <th:block th:if="${null != pageResult and !#lists.isEmpty(pageResult.list)}">
             <span class="page_span1">
+                 <a th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&page=1'+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}">
+                                    首页
+                                </a>
                  <a th:href="@{${pageResult.currPage==1}?'##':'/search?keyword='+${keyword==null?'':keyword}+'&page=' + ${pageResult.currPage-1}+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}">
                                     < 上一页
                                 </a>
@@ -106,6 +109,9 @@
                         th:text="${pageResult.currPage +2}">1</a></th:block>
                  <a th:href="@{${pageResult.currPage>=pageResult.totalPage}?'##':'/search?keyword='+${keyword==null?'':keyword}+'&page=' + ${pageResult.currPage+1}+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}">
                                     下一页 >
+                                </a>
+                 <a th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&page=' + ${pageResult.totalPage}+'&goodsCategoryId='+${goodsCategoryId==null?'':goodsCategoryId}+'&orderBy='+${orderBy==null?'':orderBy}}">
+                                    尾页
                                 </a>
 					</span>
             </th:block>
