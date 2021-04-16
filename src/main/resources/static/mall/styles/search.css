@@ -83,12 +83,19 @@
   background-color: #f5f5f5;
 }
 .sort .list {
-  width: 1226px;
+  width: 1726px;
   height: 81px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   font-size: 14px;
+}
+.sort .list a{
+  display: block;
+  width: 60px;
+  line-height: 60px;
+  height: 60px;
+
 }
 .sort .list div {
   height: 20px;
@@ -110,42 +117,57 @@
 .sort .list .active {
   color: #1baeae;
 }
+
+.goods_item {
+  width: 1726px;
+}
 .goods_item .main {
-  width: 1226px;
+  /*background: red;*/
 }
 .goods_item .main .item_card_frame {
   float: left;
-  width: 230px;
-  height: 339px;
+  width: 430px;
+  height: 314px;
   background: #fafafa;
   cursor: pointer;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   margin-top: 4px;
-  margin-left: 2px;
+  border-radius: 5px;
+  /*margin-left: 2px;*/
 }
 .goods_item .main .item_card_frame:hover {
-  border-color: #1baeae;
+  webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+  -webkit-box-shadow: 0 0 10px #999;
+  box-shadow: 0 0 10px #999;
+  -webkit-transition: all .15s ease-out;
+  transition: all .15s ease-out;
+  border-color: #ef5b9c;
 }
 .goods_item .main .item_card_frame .item_card {
-  padding: 37px;
+  /*padding: 37px;*/
+}
+.goods_item .main .item_card_frame .item_card a{
+  display: block;
 }
 .goods_item .main .item_card_frame .item_card a img {
   display: block;
   width: 160px;
-  height: 160px;
+  height: 205px;
   opacity: 0.85;
 }
 .goods_item .main .item_card_frame .item_card a img:hover {
   width: 160px;
-  height: 160px;
+  height: 205px;
   opacity: 1;
 }
 .goods_item .main .item_card_frame .item_brand {
-  width: 226px;
+  width: 430px;
   height: 14px;
   line-height: 14px;
   text-align: center;
-  margin-top: -10px;
+  /*margin-top: -10px;*/
 }
 .goods_item .main .item_card_frame .item_brand a {
   font-size: 14px;
@@ -155,7 +177,7 @@
   padding: 0 8px 0 8px;
 }
 .goods_item .main .item_card_frame .item_sub_intro {
-  width: 208px;
+  width: 430px;
   height: 14px;
   line-height: 14px;
   margin: 18px 0;

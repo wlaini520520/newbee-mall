@@ -58,8 +58,8 @@
 <div class="sort">
     <div class="list">
         <th:block th:each="goodsCategory : ${firstLevelCategories}">
-            <a th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=default'}"
-               th:text="${goodsCategory.categoryName}"></a>
+            <a style="color: #5079d9;" th:href="@{'/search?keyword='+${keyword==null?'':keyword}+'&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=default'}"
+               th:text="${goodsCategory.categoryName}"></a>&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
         </th:block>
     </div>
