@@ -72,7 +72,8 @@ $(function () {
 
 $('#saveButton').click(function () {
     var goodsId = $('#goodsId').val();
-    var goodsCategoryId = $('#levelThree option:selected').val();
+    // var goodsCategoryId = $('#levelThree option:selected').val();
+    var goodsCategoryId = $('#levelOne').val();
     var goodsName = $('#goodsName').val();
     var tag = $('#tag').val();
     var originalPrice = $('#originalPrice').val();

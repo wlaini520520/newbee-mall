@@ -39,30 +39,30 @@ public class IndexController {
     @Resource
     private NewBeeMallCategoryService newBeeMallCategoryService;
 
-    @GetMapping({"/index", "/", "/index.html"})
-    public String indexPage(HttpServletRequest request) {
-        List<NewBeeMallIndexCategoryVO> categories = newBeeMallCategoryService.getCategoriesForIndex();
-        if (CollectionUtils.isEmpty(categories)) {
-            return "error/error_5xx";
-        }
-        String page = request.getParameter("page");
-        int newGoodsNum = 1;
-        if (!StringUtils.isEmpty(page)) {
-            newGoodsNum = Integer.parseInt(page) - 1 < 0 ? 0 : Integer.parseInt(page) - 1;
-        } else {
-            newGoodsNum -= 1;
-        }
-        List<NewBeeMallIndexCarouselVO> carousels = newBeeMallCarouselService.getCarouselsForIndex(Constants.INDEX_CAROUSEL_NUMBER);
-        List<NewBeeMallIndexConfigGoodsVO> hotGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_HOT.getType(), Constants.INDEX_GOODS_HOT_NUMBER, 1);
-        List<NewBeeMallIndexConfigGoodsVO> newGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_NEW.getType(), newGoodsNum, newGoodsNum);
-        List<NewBeeMallIndexConfigGoodsVO> recommendGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_RECOMMOND.getType(), Constants.INDEX_GOODS_RECOMMOND_NUMBER, 1);
-        request.setAttribute("categories", categories);//分类数据
-        request.setAttribute("carousels", carousels);//轮播图
-        request.setAttribute("hotGoodses", hotGoodses);//热销商品
-        request.setAttribute("newGoodses", newGoodses);//新品
-        request.setAttribute("recommendGoodses", recommendGoodses);//推荐商品
-        PageResult newGoodsResult = newBeeMallIndexConfigService.getConfigsPage(new PageQueryUtil(newGoodsNum + 1, Constants.PAGE_SIZE, IndexConfigTypeEnum.INDEX_GOODS_NEW.getType()));
-        request.setAttribute("newGoodsResult", newGoodsResult);
-        return "mall/index";
-    }
+//    @GetMapping({"/index", "/", "/index.html"})
+//    public String indexPage(HttpServletRequest request) {
+//        List<NewBeeMallIndexCategoryVO> categories = newBeeMallCategoryService.getCategoriesForIndex();
+//        if (CollectionUtils.isEmpty(categories)) {
+//            return "error/error_5xx";
+//        }
+//        String page = request.getParameter("page");
+//        int newGoodsNum = 1;
+//        if (!StringUtils.isEmpty(page)) {
+//            newGoodsNum = Integer.parseInt(page) - 1 < 0 ? 0 : Integer.parseInt(page) - 1;
+//        } else {
+//            newGoodsNum -= 1;
+//        }
+//        List<NewBeeMallIndexCarouselVO> carousels = newBeeMallCarouselService.getCarouselsForIndex(Constants.INDEX_CAROUSEL_NUMBER);
+//        List<NewBeeMallIndexConfigGoodsVO> hotGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_HOT.getType(), Constants.INDEX_GOODS_HOT_NUMBER, 1);
+//        List<NewBeeMallIndexConfigGoodsVO> newGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_NEW.getType(), newGoodsNum, newGoodsNum);
+//        List<NewBeeMallIndexConfigGoodsVO> recommendGoodses = newBeeMallIndexConfigService.getConfigGoodsesForIndex(IndexConfigTypeEnum.INDEX_GOODS_RECOMMOND.getType(), Constants.INDEX_GOODS_RECOMMOND_NUMBER, 1);
+//        request.setAttribute("categories", categories);//分类数据
+//        request.setAttribute("carousels", carousels);//轮播图
+//        request.setAttribute("hotGoodses", hotGoodses);//热销商品
+//        request.setAttribute("newGoodses", newGoodses);//新品
+//        request.setAttribute("recommendGoodses", recommendGoodses);//推荐商品
+//        PageResult newGoodsResult = newBeeMallIndexConfigService.getConfigsPage(new PageQueryUtil(newGoodsNum + 1, Constants.PAGE_SIZE, IndexConfigTypeEnum.INDEX_GOODS_NEW.getType()));
+//        request.setAttribute("newGoodsResult", newGoodsResult);
+//        return "mall/index";
+//    }
 }
