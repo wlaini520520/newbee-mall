@@ -1,7 +1,7 @@
 <!-- Copyright (c) 2019-2020 十三 all rights reserved. -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-搜索','search')">
+<head th:replace="mall/header::head-fragment('余罪商城-搜索','search')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -58,10 +58,23 @@
 <div class="sort">
     <div class="list">
         <th:block th:each="goodsCategory : ${firstLevelCategories}">
-            <a style="color: #5079d9;" th:href="@{'/search?&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=default'}"
-               th:text="${goodsCategory.categoryName}"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a style="color: #5079d9;" th:href="@{'/search?&goodsCategoryId='+${goodsCategory.categoryId==null?'':goodsCategory.categoryId}+'&orderBy=new'}"
+               th:text="${goodsCategory.categoryName}">&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
         </th:block>
+    </div>
+    <div id="zhiye">
+        职业：&nbsp;&nbsp;
+        <a style="color: #5079d9;" href="javascript:filterZhiye('战士');">战士</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('弓箭手');">弓箭手</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('魔法师');">魔法师</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('牧师');">牧师</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('学者');">学者</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('舞娘');">舞娘</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('刺客');">刺客</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('萌骑士');">萌骑士</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('兽娘');">兽娘</a>
+        <a style="color: #5079d9;" href="javascript:filterZhiye('浪客');">浪客</a>
     </div>
 </div>
 
@@ -123,5 +136,38 @@
 <!-- jQuery -->
 <script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
 <script th:src="@{/mall/js/search.js}" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        var goodsCategoryId = getParameter("goodsCategoryId");
+        if (goodsCategoryId) {
+            $("#zhiye").show()
+        } else {
+            $("#zhiye").hide()
+        }
+    });
+
+    function getParameter(paramName) {
+        var r = window.location.search.substr(1);
+        var params = r.split("&")
+        for (i = 0; i < params.length; i++) {
+            if (params[i].split('=')[0] == paramName) {
+                return params[i].split('=')[1]
+            }
+        }
+        return null;
+    }
+
+    function filterZhiye(keyword) {
+        var zhiye = $("#zhiye").val();
+        var goodsCategoryId = getParameter("goodsCategoryId");
+        if (goodsCategoryId) {
+            window.location.href = '/search?&goodsCategoryId='+goodsCategoryId+'&orderBy=new&keyword=' + keyword;
+        }
+    }
+    function zhiyeSpanInit(event) {
+        console.log(event)
+       // $("#zhiyeSpan").text(val);
+    }
+</script>
 </body>
 </html>

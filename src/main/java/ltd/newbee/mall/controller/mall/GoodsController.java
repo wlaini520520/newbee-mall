@@ -40,7 +40,9 @@ public class GoodsController {
 
     @GetMapping({"/index", "/", "/index.html"})
     public String indexPage(HttpServletRequest request) {
-        return searchPage(new HashMap<>(), request);
+        HashMap<String, Object> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("orderBy", "new");
+        return searchPage(objectObjectHashMap, request);
     }
 
     @GetMapping({"/search", "/search.html"})

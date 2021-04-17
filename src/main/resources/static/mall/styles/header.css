@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     height: 12px;
-    font-size: 14px;
+    font-size: 24px;
     color: #b0b0b0;
     padding: 0 8px;
     border-right: 1px solid #b0b0b0;
@@ -112,8 +112,8 @@
 #header .center .fr .login li a {
     display: flex;
     align-items: center;
-    height: 12px;
-    font-size: 12px;
+    height: 16px;
+    font-size: 16px;
     color: #b0b0b0;
     padding: 0 8px;
     border-right: 1px solid #b0b0b0;
