@@ -350,4 +350,20 @@ public class NewBeeMallGoodsController {
         }
     }
 
+    /**
+     * 批量修改销售状态
+     */
+    @RequestMapping(value = "/goods/deleteReal", method = RequestMethod.PUT)
+    @ResponseBody
+    public Result deleteReal(@RequestBody Long[] ids) {
+        if (ids.length < 1) {
+            return ResultGenerator.genFailResult("参数异常！");
+        }
+        if (newBeeMallGoodsService.batchDeleteReal(ids)) {
+            return ResultGenerator.genSuccessResult();
+        } else {
+            return ResultGenerator.genFailResult("修改失败");
+        }
+    }
+
 }

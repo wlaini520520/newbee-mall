@@ -173,3 +173,43 @@ function putDownGoods() {
     )
     ;
 }
+
+/**
+ * 删除
+ */
+function deleteDownGoods() {
+    var ids = getSelectedRows();
+    if (ids == null) {
+        return;
+    }
+    swal({
+        title: "确认弹框",
+        text: "确认要执行删除操作吗?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((flag) => {
+            if (flag) {
+                $.ajax({
+                    type: "PUT",
+                    url: "/admin/goods/deleteReal",
+                    contentType: "application/json",
+                    data: JSON.stringify(ids),
+                    success: function (r) {
+                        if (r.resultCode == 200) {
+                            swal("删除成功", {
+                                icon: "success",
+                            });
+                            $("#jqGrid").trigger("reloadGrid");
+                        } else {
+                            swal(r.message, {
+                                icon: "error",
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    )
+    ;
+}

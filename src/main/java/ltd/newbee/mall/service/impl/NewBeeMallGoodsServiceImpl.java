@@ -77,6 +77,11 @@ public class NewBeeMallGoodsServiceImpl implements NewBeeMallGoodsService {
     }
 
     @Override
+    public Boolean batchDeleteReal(Long[] ids) {
+        return goodsMapper.batchDeleteReal(ids) > 0;
+    }
+
+    @Override
     public PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil) {
         List<NewBeeMallGoods> goodsList = goodsMapper.findNewBeeMallGoodsListBySearch(pageUtil);
         int total = goodsMapper.getTotalNewBeeMallGoodsBySearch(pageUtil);

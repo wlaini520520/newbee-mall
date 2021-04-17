@@ -46,4 +46,5 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
+    int batchDeleteReal(Long[] ids);
 }
