@@ -50,8 +50,8 @@ public class GoodsController {
         if (StringUtils.isEmpty(params.get("page"))) {
             params.put("page", 1);
         }
-//        params.put("limit", Constants.GOODS_SEARCH_PAGE_LIMIT);
-        params.put("limit", Constants.SEARCH_CATEGORY_NUMBER);
+        params.put("limit", Constants.GOODS_SEARCH_PAGE_LIMIT);
+//        params.put("limit", Constants.SEARCH_CATEGORY_NUMBER);
         // 查询所有的一级分类
         List<GoodsCategory> firstLevelCategories = newBeeMallCategoryService.selectByLevelAndParentIdsAndNumber(Collections.singletonList(0L), NewBeeMallCategoryLevelEnum.LEVEL_ONE.getLevel());
         request.setAttribute("firstLevelCategories", firstLevelCategories);
