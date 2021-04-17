@@ -78,6 +78,9 @@
             <if test="endTime != null and endTime.trim() != ''">
                 and create_time &lt; #{endTime}
             </if>
+            <if test="goodsCategoryId != null">
+                and goods_category_id = #{goodsCategoryId}
+            </if>
         </where>
         order by goods_id desc
         <if test="start!=null and limit!=null">

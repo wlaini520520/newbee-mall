@@ -101,18 +101,18 @@ $('#saveButton').click(function () {
         });
         return;
     }
-    if (isNull(tag)) {
-        swal("请输入商品小标签", {
-            icon: "error",
-        });
-        return;
-    }
-    if (!validLength(tag, 100)) {
-        swal("标签过长", {
-            icon: "error",
-        });
-        return;
-    }
+    // if (isNull(tag)) {
+    //     swal("请输入商品小标签", {
+    //         icon: "error",
+    //     });
+    //     return;
+    // }
+    // if (!validLength(tag, 100)) {
+    //     swal("标签过长", {
+    //         icon: "error",
+    //     });
+    //     return;
+    // }
     if (isNull(goodsIntro)) {
         swal("请输入商品简介", {
             icon: "error",
@@ -125,24 +125,24 @@ $('#saveButton').click(function () {
         });
         return;
     }
-    if (isNull(originalPrice) || originalPrice < 1) {
-        swal("请输入商品价格", {
-            icon: "error",
-        });
-        return;
-    }
+    // if (isNull(originalPrice) || originalPrice < 1) {
+    //     swal("请输入商品价格", {
+    //         icon: "error",
+    //     });
+    //     return;
+    // }
     if (isNull(sellingPrice) || sellingPrice < 1) {
         swal("请输入商品售卖价", {
             icon: "error",
         });
         return;
     }
-    if (isNull(stockNum) || sellingPrice < 0) {
-        swal("请输入商品库存数", {
-            icon: "error",
-        });
-        return;
-    }
+    // if (isNull(stockNum) || sellingPrice < 0) {
+    //     swal("请输入商品库存数", {
+    //         icon: "error",
+    //     });
+    //     return;
+    // }
     if (isNull(goodsSellStatus)) {
         swal("请选择上架状态", {
             icon: "error",

@@ -82,10 +82,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/admin/goods}" th:class="${path}=='newbee_mall_goods'?'nav-link active':'nav-link'">
+                    <a th:href="@{/admin/goods/ZHANGHAO}" th:class="${path}=='newbee_mall_goods_zhanghao'?'nav-link active':'nav-link'">
                         <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
                         <p>
-                            商品管理
+                            账号管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/goods/ZHUANGBEI}" th:class="${path}=='newbee_mall_goods_zhuangbei'?'nav-link active':'nav-link'">
+                        <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
+                        <p>
+                            装备管理
                         </p>
                     </a>
                 </li>
