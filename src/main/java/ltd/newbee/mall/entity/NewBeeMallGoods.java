@@ -47,6 +47,16 @@ public class NewBeeMallGoods {
 
     private String goodsDetailContent;
 
+    private String roleName;
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
     public Long getGoodsId() {
         return goodsId;
     }

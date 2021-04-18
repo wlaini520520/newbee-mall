@@ -4,6 +4,7 @@ $(function () {
         datatype: "json",
         colModel: [
             {label: '商品编号', name: 'goodsId', index: 'goodsId', width: 60, key: true},
+            {label: '职业', name: 'roleName', index: 'roleName', width: 60},
             {label: '商品名', name: 'goodsName', index: 'goodsName', width: 120},
             {label: '商品简介', name: 'goodsIntro', index: 'goodsIntro', width: 120},
             {label: '商品图片', name: 'goodsCoverImg', index: 'goodsCoverImg', width: 120, formatter: coverImageFormatter},

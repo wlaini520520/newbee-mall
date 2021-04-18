@@ -83,6 +83,7 @@ $('#saveButton').click(function () {
     var goodsSellStatus = $("input[name='goodsSellStatus']:checked").val();
     var goodsDetailContent = editorD.txt.html();
     var goodsCoverImg = $('#goodsCoverImg')[0].src;
+    var roleName = $('#roleName').val();
     if (isNull(goodsCategoryId)) {
         swal("请选择分类", {
             icon: "error",
@@ -180,7 +181,8 @@ $('#saveButton').click(function () {
         "goodsDetailContent": goodsDetailContent,
         "goodsCoverImg": goodsCoverImg,
         "goodsCarousel": goodsCoverImg,
-        "goodsSellStatus": goodsSellStatus
+        "goodsSellStatus": goodsSellStatus,
+        "roleName": roleName
     };
     if (goodsId > 0) {
         url = '/admin/goods/update';
@@ -197,7 +199,8 @@ $('#saveButton').click(function () {
             "goodsDetailContent": goodsDetailContent,
             "goodsCoverImg": goodsCoverImg,
             "goodsCarousel": goodsCoverImg,
-            "goodsSellStatus": goodsSellStatus
+            "goodsSellStatus": goodsSellStatus,
+            "roleName": roleName
         };
     }
     console.log(data);

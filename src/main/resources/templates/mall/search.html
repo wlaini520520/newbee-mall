@@ -65,6 +65,8 @@
     </div>
     <div id="zhiye">
         职业：&nbsp;&nbsp;
+        <a style="color: #5079d9;" href="javascript:filterZhiye('全部');">全部</a>
+        &nbsp;&nbsp;&nbsp;
         <a style="color: #5079d9;" href="javascript:filterZhiye('战士');">战士</a>
         <a style="color: #5079d9;" href="javascript:filterZhiye('弓箭手');">弓箭手</a>
         <a style="color: #5079d9;" href="javascript:filterZhiye('魔法师');">魔法师</a>
@@ -86,6 +88,7 @@
         <th:block th:unless="${#lists.isEmpty(pageResult.list)}">
             <th:block th:each="goods : ${pageResult.list}">
                 <div class="item_card_frame">
+                    <div class="item_price" style="color: red" th:text="商品编号+ '：' + ${goods.goodsId}">商品编号：1</div>
                     <div class="item_card"><a th:href="@{'/goods/detail/'+${goods.goodsId}}" target="_blank"><img
                             th:src="@{${goods.goodsCoverImg}}" th:alt="${goods.goodsName}"></a></div>
                     <div class="item_brand"><a th:href="@{'/goods/detail/'+${goods.goodsId}}" target="_blank"
@@ -157,17 +160,18 @@
         return null;
     }
 
-    function filterZhiye(keyword) {
+    function filterZhiye(roleName) {
         var zhiye = $("#zhiye").val();
         var goodsCategoryId = getParameter("goodsCategoryId");
         if (goodsCategoryId) {
-            window.location.href = '/search?&goodsCategoryId='+goodsCategoryId+'&orderBy=new&keyword=' + keyword;
+            if (roleName == '全部') {
+                window.location.href = '/search?&goodsCategoryId='+goodsCategoryId+'&orderBy=new';
+            } else {
+                window.location.href = '/search?&goodsCategoryId='+goodsCategoryId+'&orderBy=new&roleName=' + roleName;
+            }
         }
     }
-    function zhiyeSpanInit(event) {
-        console.log(event)
-       // $("#zhiyeSpan").text(val);
-    }
+
 </script>
 </body>
 </html>
