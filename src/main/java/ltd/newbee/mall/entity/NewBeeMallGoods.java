@@ -49,6 +49,16 @@ public class NewBeeMallGoods {
 
     private String roleName;
 
+    private String contact;
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
     public String getRoleName() {
         return roleName;
     }

@@ -17,7 +17,8 @@ $(function () {
                 width: 80,
                 formatter: goodsSellStatusFormatter
             },
-            {label: '创建时间', name: 'createTime', index: 'createTime', width: 60}
+            {label: '创建时间', name: 'createTime', index: 'createTime', width: 60},
+            {label: '联系方式', name: 'contact', index: 'contact', width: 60}
         ],
         height: 760,
         rowNum: 20,

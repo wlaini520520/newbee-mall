@@ -18,6 +18,7 @@
         <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
         <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <result column="contact" jdbcType="VARCHAR" property="contact"/>
     </resultMap>
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="ltd.newbee.mall.entity.NewBeeMallGoods">
         <result column="goods_detail_content" jdbcType="LONGVARCHAR" property="goodsDetailContent"/>
@@ -25,7 +26,7 @@
     <sql id="Base_Column_List">
     goods_id, goods_name, goods_intro,goods_category_id, goods_cover_img, goods_carousel, original_price,
     selling_price, stock_num, tag, goods_sell_status, create_user, create_time, update_user, 
-    update_time, role_name
+    update_time, role_name, contact
   </sql>
     <sql id="Blob_Column_List">
     goods_detail_content
@@ -35,10 +36,11 @@
         INSERT INTO tb_newbee_mall_goods_info(goods_name, goods_intro, goods_category_id,goods_cover_img,
         goods_carousel,
         goods_detail_content,original_price,
-        selling_price, stock_num, role_name)
+        selling_price, stock_num, role_name, contact)
         VALUES
         <foreach collection="newBeeMallGoodsList" item="goods" separator=",">
-            (#{goods.goodsName},#{goods.goodsIntro},#{goods.goodsCategoryId},#{goods.goodsCoverImg},#{goods.goodsCarousel},#{goods.goodsDetailContent},#{goods.originalPrice},#{goods.sellingPrice},#{goods.stockNum}, #{goods.roleName})
+            (#{goods.goodsName},#{goods.goodsIntro},#{goods.goodsCategoryId},#{goods.goodsCoverImg},#{goods.goodsCarousel},#{goods.goodsDetailContent},#{goods.originalPrice},#{goods.sellingPrice},#{goods.stockNum}, #{goods.roleName},
+            #{goods.contact})
         </foreach>
     </insert>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
@@ -200,14 +202,14 @@
       goods_cover_img, goods_carousel, original_price, 
       selling_price, stock_num, tag, 
       goods_sell_status, create_user, create_time, 
-      update_user, update_time, goods_detail_content,role_name
+      update_user, update_time, goods_detail_content,role_name, contact
       )
     values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR}, 
       #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER}, 
       #{sellingPrice,jdbcType=INTEGER}, #{stockNum,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR}, 
       #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR}
-      #{roleName,jdbcType=VARCHAR}
+      #{roleName,jdbcType=VARCHAR},#{contact,jdbcType=VARCHAR}
       )
   </insert>
     <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
@@ -262,7 +264,10 @@
                 goods_detail_content,
             </if>
             <if test="roleName != null and roleName != ''">
-                role_name
+                role_name,
+            </if>
+            <if test="contact != null and contact != ''">
+                contact
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -317,6 +322,9 @@
             <if test="roleName != null and roleName != ''">
                 #{roleName,jdbcType=VARCHAR},
             </if>
+            <if test="contact != null and contact != ''">
+                #{contact,jdbcType=VARCHAR}
+            </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
@@ -368,7 +376,10 @@
                 goods_detail_content = #{goodsDetailContent,jdbcType=LONGVARCHAR},
             </if>
             <if test="roleName != null and roleName != ''">
-                role_name = #{roleName,jdbcType=VARCHAR}
+                role_name = #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="contact != null and contact != ''">
+                contact = #{contact,jdbcType=VARCHAR}
             </if>
         </set>
         where goods_id = #{goodsId,jdbcType=BIGINT}
@@ -389,7 +400,8 @@
       update_user = #{updateUser,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       goods_detail_content = #{goodsDetailContent,jdbcType=LONGVARCHAR},
-      role_name = #{roleName,jdbcType=VARCHAR}
+      role_name = #{roleName,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
     <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
@@ -407,7 +419,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_user = #{updateUser,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      role_name = #{roleName,jdbcType=VARCHAR}
+      role_name = #{roleName,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
 </mapper>

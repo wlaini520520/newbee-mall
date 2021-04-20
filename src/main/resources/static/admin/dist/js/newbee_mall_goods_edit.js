@@ -84,6 +84,7 @@ $('#saveButton').click(function () {
     var goodsDetailContent = editorD.txt.html();
     var goodsCoverImg = $('#goodsCoverImg')[0].src;
     var roleName = $('#roleName').val();
+    var contact = $('#contact').val();
     if (isNull(goodsCategoryId)) {
         swal("请选择分类", {
             icon: "error",
@@ -182,7 +183,8 @@ $('#saveButton').click(function () {
         "goodsCoverImg": goodsCoverImg,
         "goodsCarousel": goodsCoverImg,
         "goodsSellStatus": goodsSellStatus,
-        "roleName": roleName
+        "roleName": roleName,
+        "contact": contact
     };
     if (goodsId > 0) {
         url = '/admin/goods/update';
@@ -200,7 +202,8 @@ $('#saveButton').click(function () {
             "goodsCoverImg": goodsCoverImg,
             "goodsCarousel": goodsCoverImg,
             "goodsSellStatus": goodsSellStatus,
-            "roleName": roleName
+            "roleName": roleName,
+            "contact": contact
         };
     }
     console.log(data);
