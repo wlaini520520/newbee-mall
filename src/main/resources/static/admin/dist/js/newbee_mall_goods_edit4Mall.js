@@ -8,7 +8,7 @@ $(function () {
     // 设置编辑区域高度为 750px
     editorD.config.height = 750
     //配置服务端图片上传地址
-    editorD.config.uploadImgServer = '/admin/upload/files'
+    editorD.config.uploadImgServer = '/goods/upload/files'
     editorD.config.uploadFileName = 'files'
     //限制图片大小 2M
     editorD.config.uploadImgMaxSize = 2 * 1024 * 1024
@@ -48,7 +48,7 @@ $(function () {
 
     //图片上传插件初始化 用于商品预览图上传
     new AjaxUpload('#uploadGoodsCoverImg', {
-        action: '/admin/upload/file',
+        action: '/goods/upload/file',
         name: 'file',
         autoSubmit: true,
         responseType: "json",
@@ -170,7 +170,7 @@ $('#saveButton').click(function () {
         });
         return;
     }
-    var url = '/admin/goods/save';
+    var url = '/goods/save';
     var swlMessage = '保存成功';
     var data = {
         "goodsName": goodsName,
@@ -188,7 +188,7 @@ $('#saveButton').click(function () {
         "contact": contact
     };
     if (goodsId > 0) {
-        url = '/admin/goods/update';
+        url = '/goods/update';
         swlMessage = '修改成功';
         data = {
             "goodsId": goodsId,
@@ -224,7 +224,7 @@ $('#saveButton').click(function () {
                     confirmButtonClass: 'btn btn-success',
                     buttonsStyling: false
                 }).then(function () {
-                    window.location.href = "/admin/goods";
+                    window.location.href = "/search";
                 })
             } else {
                 swal(result.message, {
@@ -242,7 +242,7 @@ $('#saveButton').click(function () {
 });
 
 $('#cancelButton').click(function () {
-    window.location.href = "/admin/goods";
+    window.location.href = "/search";
 });
 
 $('#levelOne').on('change', function () {
